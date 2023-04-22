@@ -7,12 +7,10 @@
  * @arg: pointer expected
  * Return: 0 on succes
  */
-
 int check_flag(char f, void *arg, int *len)
 {
 	unsigned int i = 0;
-
-	char fg[] = {'s', 'c'};
+	char fg[] = {'s', 'c', 'd', 'i'};
 
 	if (f)
 	{
@@ -22,12 +20,16 @@ int check_flag(char f, void *arg, int *len)
 			{
 				switch (f)
 				{
-					case 's':
-						print_string((char *)arg, len);
-						break;
-					case 'c':
-						print_character(arg, len);
-						break;
+				case 's':
+					print_string((char *)arg, len);
+					break;
+				case 'c':
+					print_character((uintptr_t)arg, len);
+					break;
+				case 'd':
+				case 'i':
+					print_number((intptr_t)arg, len);
+					break;
 				}
 			}
 			i++;
@@ -36,4 +38,3 @@ int check_flag(char f, void *arg, int *len)
 	}
 	return (0);
 }
-

@@ -7,13 +7,11 @@
  * Return: void
  */
 
-void print_character(void *c, int *len)
+void print_character(int c, int *len)
 {
-	uintptr_t r = (uintptr_t)c;
-
-	if (r)
+	if (c)
 	{
-		_putchar(r);
+		putchar(c);
 		*len -= 1;
 	}
 }

@@ -9,7 +9,7 @@
 int print_error_check(const char *string)
 {
 	int g, h = 0, has_specifier = 0;
-	const char *specifier = "sc%";
+	const char *specifier = "scdi%";
 
 	for (g = 0; string[g] != '\0'; g++)
 	{
