@@ -26,7 +26,7 @@ int check_flag(char f, void *arg, int *len)
 						print_string((char *)arg, len);
 						break;
 					case 'c':
-						print_character((char)arg, len);
+						print_character(arg, len);
 						break;
 				}
 			}
