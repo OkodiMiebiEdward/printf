@@ -15,17 +15,8 @@ int _printf(char *format, ...)
 
 	if (format != NULL)
 	{
-<<<<<<< HEAD
 		va_start(args, format);
 		while (*format)
-=======
-		if (format[i] != '%')
-		{
-			_putchar(format[i]);
-			len++;
-		}
-		else if (format[i + 1] != '\0')
->>>>>>> eda946b6573ecb9c296aecec69fbeeaddf4ab6a0
 		{
 			if (*format == '%')
 			{
@@ -41,21 +32,9 @@ int _printf(char *format, ...)
 				char_to_temp(temp, &index, *format);
 			format++;
 		}
-<<<<<<< HEAD
 		va_end(args);
 		len = print_temp(temp, &index);
 		return (len);
-=======
-		else
-		{
-			_putchar(format[i]);
-			i++;
-			len++;
-		}
-		i++;
-		count += len;
-		len = 0;
->>>>>>> eda946b6573ecb9c296aecec69fbeeaddf4ab6a0
 	}
 	return (value);
 }
