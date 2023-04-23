@@ -1,19 +1,19 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include <stdint.h>
 #include <stdio.h>
 #include <stdarg.h>
-#include <string.h>
-#include <stdlib.h>
+#include <unistd.h>
 
-/*Helper functions*/
-int print_number(signed long n, int len);
-int print_string(char *s, int len);
-int print_character(int c, int len);
-int check_flag(char f, va_list ap, int len, const char *string);
-int _printf(const char *format, ...);
-int print_error_check(const char *string);
-int _putchar(char c);
+#define BUFFER_SIZE 1024
+
+int string_length(char *s);
+int print_temp(char temp[], int *index);
+void char_to_temp(char temp[], int *index, char c);
+void str_to_temp(char temp[], int *index, char *str);
+void number_to_temp(char temp[], int *index, int num);
+int check_specifier(char c);
+int _printf(char *format, ...);
+int determine_specifier(char temp[], int *index, va_list args, char format);
 
 #endif

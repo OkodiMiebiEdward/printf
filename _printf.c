@@ -1,44 +1,40 @@
 #include "main.h"
 
 /**
- * _printf - the printf function
- * @format: the expected format
+ * _printf - A function that writes a string to stdout
+ * @format: A string
  *
- * Return: len
+ * Return: length of printed string
  */
-int _printf(const char *format, ...)
+
+int _printf(char *format, ...)
 {
-	int i = 0, j = 0, len = 0, count = 0;
-	va_list arg;
+	char temp[BUFFER_SIZE];
+	int index = 0, len = 0, value = -1;
+	va_list args;
 
-	if (print_error_check(format))
-		return (-1);
-
-	va_start(arg, format);
-	while (format[i] != '\0')
+	if (format != NULL)
 	{
-		if (format[i] != '%')
+		va_start(args, format);
+		while (*format)
 		{
-			putchar(format[i]);
-			len++;
+			if (*format == '%')
+			{
+				format++;
+				if (check_specifier(*format))
+					value = determine_specifier(temp, &index, args, *format);
+				else
+				{
+					char_to_temp(temp, &index, '%');
+					format--;
+				}
+			} else
+				char_to_temp(temp, &index, *format);
+			format++;
 		}
-		else if (format[i + 1] != '\0')
-		{
-			j = i + 1;
-			len += check_flag(format[j], arg, len, format);
-			i++;
-		}
-		else
-		{
-			putchar(format[i]);
-			i++;
-			len++;
-		}
-		i++;
-		count += len;
-		len = 0;
+		va_end(args);
+		len = print_temp(temp, &index);
+		return (len);
 	}
-	va_end(arg);
-
-	return (count);
+	return (value);
 }
