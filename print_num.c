@@ -14,15 +14,15 @@ int print_number(signed long n, int len)
 
 	if (n < 0)
 	{
-		putchar('-');
+		_putchar('-');
 		n = n * -1;
 		len += 1;
 	}
 	if (n == 0)
 	{
-		putchar('0');
+		_putchar('0');
 		len += 1;
-		return len;
+		return (len);
 	}
 
 	while (n > 0)
@@ -34,7 +34,7 @@ int print_number(signed long n, int len)
 	while (i > 0)
 	{
 		i--;
-		putchar(value[i] + '0');
+		_putchar(value[i] + '0');
 		len += 1;
 	}
 	return (len);
