@@ -6,17 +6,36 @@
  * @n: A number
  * @len: Current length of the string.
  */
-void print_number(int n, int *len)
+
+int print_number(signed long n, int len)
 {
+	int value[20];
+	int i = 0;
+
 	if (n < 0)
 	{
-		_putchar('-');
+		putchar('-');
 		n = n * -1;
+		len += 1;
 	}
-	if (n / 10 > 0)
+	if (n == 0)
 	{
-		print_number((n / 10), len);
+		putchar('0');
+		len += 1;
+		return len;
 	}
-	_putchar(n % 10 + '0');
-	*len = *len + 1;
+
+	while (n > 0)
+	{
+		value[i] = n % 10;
+		n /= 10;
+		i++;
+	}
+	while (i > 0)
+	{
+		i--;
+		putchar(value[i] + '0');
+		len += 1;
+	}
+	return (len);
 }

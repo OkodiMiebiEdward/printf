@@ -4,37 +4,38 @@
  * check_flag - checks the right flag for the expected output
  * @f: the character to be checked
  * @len: pointer to an int
- * @arg: pointer expected
- * Return: 0 on succes
+ * @ap: va list
+ * @string: format string
+ *
+ * Return: len
  */
-int check_flag(char f, void *arg, int *len)
-{
-	unsigned int i = 0;
-	char fg[] = {'s', 'c', 'd', 'i'};
 
-	if (f)
+int check_flag(char f, va_list ap, int len, const char *string)
+{
+	char *s = "";
+
+	switch (f)
 	{
-		while (i < strlen(fg))
-		{
-			if (fg[i] == f)
+		case 's':
 			{
-				switch (f)
-				{
-				case 's':
-					print_string((char *)arg, len);
-					break;
-				case 'c':
-					print_character((uintptr_t)arg, len);
-					break;
-				case 'd':
-				case 'i':
-					print_number((intptr_t)arg, len);
-					break;
-				}
+				s = va_arg(ap, char *);
+				if (s == NULL && (string[0] == '%' && string[1] == 's'))
+					s = "(null)";
+				len += print_string(s, len);
+				break;
 			}
-			i++;
-		}
-		return (1);
+		case 'c':
+			len += print_character(va_arg(ap, int), len);
+			break;
+		case 'd':
+		case 'i':
+			{
+				len += print_number(va_arg(ap, signed long int), len);
+				len -= 1;
+				break;
+			}
+		default:
+			break;
 	}
-	return (0);
+	return (len);
 }

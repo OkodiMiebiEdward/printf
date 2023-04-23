@@ -3,31 +3,35 @@
 /**
  * print_error_check - checks for valid specifier
  * @string: the expected string to check
+ *
  * Return: 0 on success, 1 otherwise
  */
 
 int print_error_check(const char *string)
 {
-	int g, h = 0, has_specifier = 0;
-	const char *specifier = "scdi%";
+	int i, j = 0;
+	const char *specifier = "csdi%";
 
-	for (g = 0; string[g] != '\0'; g++)
+	if (string == NULL || (string[0] == '%' && string[1] == '\0'))
+		return (-1);
+
+	for (i = 0; string[i] != '\0'; i++)
 	{
-		if (string[g] == '%')
+		if (string[i] == '%')
 		{
-			has_specifier = 1;
-			while (specifier[h] != '\0')
+			if (string[i + 1] == '\0')
+				return (-1);
+			j = 0;
+			while (specifier[j] != '\0')
 			{
-				if (string[g + 1] == specifier[h])
-				{
-					return (1);
-				}
-				h++;
+				if (string[i + 1] == specifier[j])
+					break;
+				j++;
 			}
+			if (specifier[j] == '\0')
+				return (-1);
 		}
 	}
-	if (!has_specifier)
-		return (1);
+
 	return (0);
 }
-

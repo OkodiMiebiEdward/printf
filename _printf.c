@@ -1,42 +1,44 @@
 #include "main.h"
 
 /**
- *_printf - the printf function
- *@format: the expected format
- *Return: int
+ * _printf - the printf function
+ * @format: the expected format
+ *
+ * Return: len
  */
-
 int _printf(const char *format, ...)
 {
-	int i = 0, j = 0, count = 0, *len;
+	int i = 0, j = 0, len = 0, count = 0;
 	va_list arg;
-	void *s;
 
-	if (print_error_check(format) == 0)
-		return (0);
+	if (print_error_check(format))
+		return (-1);
 
 	va_start(arg, format);
-	len = &count;
 	while (format[i] != '\0')
 	{
 		if (format[i] != '%')
-			_putchar(format[i]);
-		else if (format[i] == '%' && format[i + 1] != '%')
+		{
+			putchar(format[i]);
+			len++;
+		}
+		else if (format[i + 1] != '\0')
 		{
 			j = i + 1;
-			s = va_arg(arg, void *);
-			*len += check_flag(format[j], s, len);
+			len += check_flag(format[j], arg, len, format);
 			i++;
 		}
-		else if (format[i] == '%' && format[i + 1] == '%')
+		else
 		{
-			_putchar(format[i]);
+			putchar(format[i]);
 			i++;
+			len++;
 		}
 		i++;
-		*len = *len + 1;
+		count += len;
+		len = 0;
 	}
 	va_end(arg);
 
-	return (*len);
+	return (count);
 }

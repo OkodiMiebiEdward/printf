@@ -3,21 +3,23 @@
 /**
  * print_string - prints a string
  * @s: the string to be printed
- * @len: pointer to an integer
- * Return: void
+ * @len: current length of printed characters
+ *
+ * Return: len
  */
-
-void print_string(char *s, int *len)
+int print_string(char *s, int len)
 {
+	int index = 0;
+	int slen = strlen(s);
+
 	if (s)
 	{
-		int index = 0;
-
 		while (s[index] != '\0')
 		{
-			_putchar(s[index]);
+			putchar(s[index]);
 			index++;
 		}
-		*len = *len + index - 1;
+		len += slen;
 	}
+	return (len);
 }

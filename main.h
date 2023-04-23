@@ -8,14 +8,12 @@
 #include <stdlib.h>
 
 /*Helper functions*/
-void print_string(char *s, int *len);
-void print_character(int c, int *len);
-int check_flag(char f, void *arg, int *len);
+int print_number(signed long n, int len);
+int print_string(char *s, int len);
+int print_character(int c, int len);
+int check_flag(char f, va_list ap, int len, const char *string);
 int _printf(const char *format, ...);
 int print_error_check(const char *string);
 int _putchar(char c);
-void print_number(int n, int *len);
-
-
 
 #endif
