@@ -10,7 +10,7 @@ int print_character(int c, int len)
 {
 	if (c)
 	{
-		putchar(c);
+		_putchar(c);
 		len += 1;
 	}
 	return (len);
