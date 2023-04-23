@@ -16,7 +16,7 @@ int print_string(char *s, int len)
 	{
 		while (s[index] != '\0')
 		{
-			putchar(s[index]);
+			_putchar(s[index]);
 			index++;
 		}
 		len += slen;
