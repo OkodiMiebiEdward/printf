@@ -10,13 +10,13 @@
 
 void binary_to_tmp(char temp[], int *index, unsigned int num)
 {
-      if (index != NULL)
-	  {
-	      if ( num >= 2 )
-		  {
-		     print_binary(temp,index , num / 2);
-		  }
-	      char_to_tmp(temp, index, '0' + num % 2);
-	  }
+	if (index != NULL)
+	{
+		if (num >= 2)
+		{
+			print_binary(temp, index, num / 2);
+		}
+		char_to_tmp(temp, index, '0' + num % 2);
+	}
 
 }
