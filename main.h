@@ -1,6 +1,3 @@
-#ifdef MAIN_H
-#undef MAIN_H
-#endif
 #ifndef MAIN_H
 #define MAIN_H
 
