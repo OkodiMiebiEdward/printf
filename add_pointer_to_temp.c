@@ -18,7 +18,7 @@ void pointer_to_temp(char temp[], int *index, void *address)
 			str_to_temp(temp, index, "0x");
 			hexadecimal_to_temp(temp, index, the_address);
 		}
-		else 
+		else
 			str_to_temp(temp, index, "(nil)");
 	}
 }

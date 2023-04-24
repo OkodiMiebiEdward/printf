@@ -33,8 +33,8 @@ void hexadecimal_to_temp(char temp[], int *index, unsigned int num)
 
 
 /**
-  * hexadecimal_to_temp_upper - Recursively changes a number in base 10 to base 16
-  *and adds the number to array 'temp'
+  * hexadecimal_to_temp_upper - Recursively changes a number in base 10
+  *to base 16 and adds the number to array 'temp'
   * @temp: An array
   * @index: Index in temp
   * @num: A number in base 10
