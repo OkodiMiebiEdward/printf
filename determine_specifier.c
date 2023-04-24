@@ -14,28 +14,28 @@ int determine_specifier(char temp[], int *index, va_list args, char format)
 {
 	if (index != NULL)
 	{
-		switch (format)
-		{
-			case 's':
-				str_to_temp(temp, index, va_arg(args, char *));
-				break;
-			case 'c':
-				char_to_temp(temp, index, (char)va_arg(args, int));
-				break;
-			case 'd':
-			case 'i':
-				number_to_temp(temp, index, va_arg(args, int));
-				break;
-			case '%':
-				char_to_temp(temp, index, '%');
-				break;
-			case 'b':
-				binary_to_tmp(temp, index, va_arg(args, int));
-				break;
-
-			default:
-				return (-1);
-		}
+		if (format == 's')
+			str_to_temp(temp, index, va_arg(args, char *));
+		else if (format == 'c')
+			char_to_temp(temp, index, (char)va_arg(args, int));
+		else if (format == 'd' || format == 'i')
+			number_to_temp(temp, index, va_arg(args, int));
+		else if (format == '%')
+			char_to_temp(temp, index, '%');
+		else if (format == 'u')
+			unsigned_num_to_temp(temp, index, va_arg(args, unsigned int));
+		else if (format == 'x')
+			hexadecimal_to_temp(temp, index, va_arg(args, unsigned int));
+		else if (format == 'X')
+			hexadecimal_to_temp_upper(temp, index, va_arg(args, unsigned int));
+		else if (format == 'o')
+			octal_to_temp(temp, index, va_arg(args, unsigned int));
+		else if (format == 'p')
+			pointer_to_temp(temp, index, va_arg(args, void *));
+		else if (format == 'S')
+			non_printable_strings_to_temp(temp, index, va_arg(args, char *));
+		else
+			return (-1);
 	}
 	return (0);
 }

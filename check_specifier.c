@@ -11,5 +11,15 @@
 
 int check_specifier(char c)
 {
-	return (c == 's' || c == 'c' || c == 'd' || c == 'i' || c == '%' || c == 'b');
+	int i = 0;
+	char *specifiers = "s,c,d,i,%,x,u,o,X,b,S,p";
+
+	while (specifiers[i] != '\0')
+	{
+		if (c == specifiers[i])
+			return (1);
+
+		i++;
+	}
+	return (0);
 }
