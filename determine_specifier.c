@@ -34,6 +34,8 @@ int determine_specifier(char temp[], int *index, va_list args, char format)
 			pointer_to_temp(temp, index, va_arg(args, void *));
 		else if (format == 'S')
 			non_printable_strings_to_temp(temp, index, va_arg(args, char *));
+		else if (format == 'b')
+			binary_to_tmp(temp, index, va_arg(args, unsigned int));
 		else
 			return (-1);
 	}
