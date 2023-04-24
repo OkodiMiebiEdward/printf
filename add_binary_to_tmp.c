@@ -16,7 +16,7 @@ void binary_to_tmp(char temp[], int *index, unsigned int num)
 		{
 			binary_to_tmp(temp, index, num / 2);
 		}
-		char_to_tmp(temp, index, '0' + num % 2);
+		char_to_temp(temp, index, '0' + num % 2);
 	}
 
 }
