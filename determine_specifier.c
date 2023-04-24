@@ -30,7 +30,7 @@ int determine_specifier(char temp[], int *index, va_list args, char format)
 				char_to_temp(temp, index, '%');
 				break;
 			case 'b':
-				print_binary(temp, index, va_arg(args, int));
+				binary_to_tmp(temp, index, va_arg(args, int));
 				break;
 
 			default:
