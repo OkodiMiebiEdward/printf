@@ -15,7 +15,8 @@ int print_temp(char temp[], int *index)
 	if (*index > 0)
 	{
 		string_length = write(1, temp, *index);
-		*index = 0;
 	}
+	write(1, '\0', *index + 1);
+	*index = 0;
 	return (string_length);
 }

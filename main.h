@@ -24,5 +24,9 @@ void hexadecimal_to_temp(char temp[], int *index, unsigned int num);
 void unsigned_num_to_temp(char temp[], int *index, unsigned int num);
 int _printf(char *format, ...);
 int determine_specifier(char temp[], int *index, va_list args, char format);
+void rev_str_to_temp(char temp[], int *index, char *str);
+void rot13_str_to_temp(char temp[], int *index, char *str);
+
+
 
 #endif

@@ -12,7 +12,7 @@
 int check_specifier(char c)
 {
 	int i = 0;
-	char *specifiers = "s,c,d,i,%,x,u,o,X,b,S,p";
+	char *specifiers = "scdi%xuoXbSprR";
 
 	while (specifiers[i] != '\0')
 	{

@@ -16,6 +16,10 @@ int determine_specifier(char temp[], int *index, va_list args, char format)
 	{
 		if (format == 's')
 			str_to_temp(temp, index, va_arg(args, char *));
+		else if (format == 'r')
+			rev_str_to_temp(temp, index, va_arg(args, char *));
+		else if (format == 'R')
+			rot13_str_to_temp(temp, index, va_arg(args, char *));
 		else if (format == 'c')
 			char_to_temp(temp, index, (char)va_arg(args, int));
 		else if (format == 'd' || format == 'i')

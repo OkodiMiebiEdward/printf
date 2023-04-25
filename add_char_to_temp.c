@@ -11,9 +11,12 @@ void char_to_temp(char temp[], int *index, char c)
 {
 	if (index != NULL)
 	{
-		temp[*index] = c;
-		(*index)++;
-		if (*index == BUFFER_SIZE)
-			print_temp(temp, index);
+		if (c)
+		{
+			temp[*index] = c;
+			 (*index)++;
+			if (*index == BUFFER_SIZE)
+				print_temp(temp, index);
+		}
 	}
 }
