@@ -34,7 +34,7 @@ The function `_printf()` takes a format string and any number of arguments corre
 
 ```c
 #include <stdio.h>
-#include "custom_printf.h"
+#include "main.h"
 
 int main(void)
 {
@@ -47,9 +47,9 @@ int main(void)
     unsigned int o = 0123;
     unsigned int b = 0b1010;
 
-    custom_printf("%c %s %d %i %u %x %X %o %p %r %R %b\n", c, s, i, i, u, x, x, o, p, s, s, b);
+    _printf("%c %s %d %i %u %x %X %o %p %r %R %b\n", c, s, i, i, u, x, x, o, p, s, s, b);
 
-    return 0;
+    return (0);
 }
 ```
 
